@@ -3,6 +3,47 @@ spring:
     name: multi-cache
   profiles:
     active: local
+  # mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://[数据库地址]:3306/[数据库名]
+    username: [数据库用户名]
+    password: [数据库密码]
+  # redis
+  data:
+    redis:
+      host: [Redis地址]
+      port: 6379
+      database: 1
+      password: [Redis密码]
+      username: default
+      ttl: 3600
+
+  # rabbitmq
+  rabbitmq:
+    host: [RabbitMQ地址]
+    port: 5672
+    username: [RabbitMQ用户名]
+    password: [RabbitMQ密码]
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual  # 手动确认消息
+        retry:
+          enabled: true  # 开启消费者重试（MQ层面的重试）
+          max-attempts: 3  # MQ最多重试3次
+
+canal:
+  server:
+    host: [Canal服务端IP]  # Canal服务端IP
+    port: 11111       # Canal服务端端口（默认11111）
+  destination: example  # Canal实例名（与服务端配置一致，默认example）
+  username: "[Canal用户名]"          # 数据库账号（可选，用于权限过滤）
+  password: "[Canal密码]"          # 数据库密码（可选）
+  # 监听的数据库和表（精确匹配，多个表用逗号分隔）
+  listen:
+    database: [监听的数据库名]  # 数据库名
+    table: [监听的表名]                # 表名（如需要监听多个表：表1,表2）
 
 server:
   port: 8125
