@@ -1,2 +1,2 @@
-博客地址：
+博客地址：https://blog.csdn.net/xiaojun___/article/details/154097453?sharetype=blogdetail&sharerId=154097453&sharerefer=PC&sharesource=xiaojun___&spm=1011.2480.3001.8118
 项目中有ProductServiceImpl与ProductServiceImpl2，2是我整理好为了让以后用，读者若需学习使用ProductServiceImpl即可
